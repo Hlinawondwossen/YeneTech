@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <div class="grid grid-cols-3 mt-4">
+            {% for book in books %}
+                <div class="mx-auto">
+                    <img width="150"
+                         height="150"
+                         src="{{ book.image_url }}"
+                         alt="{{ book.title }} Image">
+                    <div class="flex-col gap-3 items-center">
+                        <h2>{{ book.title }}</h2>
+                        <p>
+                            <span class="font-semibold">Author:</span> {{ book.author }}
+                        </p>
+                        <div class="mt-2">
+                            <a class="p-2 bg-gray-200 rounded-xl" href="{{ book.video_url }}">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
