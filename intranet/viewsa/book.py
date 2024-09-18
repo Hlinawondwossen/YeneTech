@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from drf_yasg.utils import swagger_auto_schema
 
 
-@login_required
 @api_view(['GET'])
 def book(request):
     # Query the database for all books
@@ -53,7 +52,7 @@ def add_update_book(request, pk=None, format=None):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+@login_required
 def readbook(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     return render(request, "readbooks.html", {"book": book})
