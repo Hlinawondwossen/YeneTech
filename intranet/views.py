@@ -42,3 +42,12 @@ def login(request):
 @login_required
 def watchvideos(request):
     return render(request, "watchvideos.html")
+
+def handler404(request, exception=None):
+    return render(
+        request, 
+        'bad_request.html')
+    
+
+def handler500(request):
+    return render(request, 'server_error.html', status=500)

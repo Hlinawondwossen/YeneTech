@@ -29,4 +29,13 @@ urlpatterns = [
     path(r'api/', get_all_books),
     path(r'api/add-update', add_update_book),
     path('api/', schema_view),
+    # site curstom errors pages
+    path('404/', views.handler404),
+    path('500/', views.handler500)
 ]
+
+# Error handlers
+handler404 = 'intranet.views.handler404'
+handler500 = 'intranet.views.handler500'
+
+
